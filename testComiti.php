@@ -4,6 +4,8 @@ function Estimate(int $members, int $nbrSections = 0, string $fede = "Z")
 {
     $total = 0;
     $sections = [];
+
+    // creation du tableau associatif des sections
     for ($i=0; $i < $nbrSections ; $i++) { 
         $sections[$i+1]= 5;
     }
@@ -39,7 +41,7 @@ function Estimate(int $members, int $nbrSections = 0, string $fede = "Z")
             break;
     }
 
-    // calcul de la réduction
+    // calcul de la réduction par rapport à la fédération
     $fede === 'G' ? $total -= $total * 0.15 : false;
 
     /*----------------------Gestion du nombre de sections-------------------*/
@@ -53,6 +55,7 @@ function Estimate(int $members, int $nbrSections = 0, string $fede = "Z")
 
     print("Application du bonus du mois à la liste des sections :\n");
     print_r($sections);
+
     // ajustement des sections en fonction du nombre de membres
     if($nbrSections > 0){
         if($members > 1000){
@@ -65,7 +68,7 @@ function Estimate(int $members, int $nbrSections = 0, string $fede = "Z")
             print("une section est offerte grâce au nombre de membres\n");
         } 
     }
-    // ajustement des sections en fonciton de la fédération
+    // ajustement des sections en fonction de la fédération
     if($fede === "N"){
         if(count($sections)> 3){
             for ($i=0; $i < 3; $i++) { 
@@ -88,8 +91,7 @@ function Estimate(int $members, int $nbrSections = 0, string $fede = "Z")
     print("Modification de la liste en fonction des sections offertes :\n");
     print_r($sections);
     
-    
-   
+    // Calcul du prix total des sections
     if(count($sections) > 0){
         $totalSections = array_sum($sections);
         $fede === "B" ? $totalSections -= $totalSections * 0.30: false;
@@ -99,7 +101,7 @@ function Estimate(int $members, int $nbrSections = 0, string $fede = "Z")
 
     /*-----------------------Gestion du total----------------------------*/
     print("coût par mois :".$total." euros\n");
-    // calcul sur l'année et ajour de la TVA
+    // calcul sur l'année et avec la TVA
     $total *=  12 * 1.20;
     print("coût à l'année : ".$total." euros\n");
     

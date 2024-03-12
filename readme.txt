@@ -1,4 +1,4 @@
-[20:18] Mikael Very
+
 Exercice Comiti - Le Devis
 
 Comiti est un logiciel mutualisé permettant aux clubs de digitaliser leur gestion, et dont le modèle
